@@ -7,6 +7,13 @@ var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
+
+
+//var gulp = require('gulp');
+//var browserSync = require('browser-sync').create();
+//var sass = require('gulp-sass');
+
+
 var injectPartials = require('gulp-inject-partials');
 var inject = require('gulp-inject');
 var sourcemaps = require('gulp-sourcemaps');
