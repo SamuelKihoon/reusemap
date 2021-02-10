@@ -1,6 +1,7 @@
       //마커 정보
             var locations = [
 
+                  
 
                 //경복궁 마커
                 ['<div class="wrap"><div class="text-box"><h4>경복궁</h4><div class="img-box"><img src="http://img.bu.to"></div><a target="_blank" href="https://www.royalpalace.go.kr/"><p>홈페이지 방문하기</p></a></div>', 37.577624, 126.976020],
