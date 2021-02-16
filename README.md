@@ -1,5 +1,3 @@
 # MAP GREEN
 <img src="backgroundlogo.png">
--위치 기반
--인증 기반
--팝업 모달창
+-재활용 지도 리유스맵.
