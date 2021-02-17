@@ -228,22 +228,8 @@
            timeout           : 27000
          };
 // geo_options
-         var map;
-         function initialize() {
-             var myLatLng = new google.maps.LatLng(latitude, longitude);
-             var mapOptions = {
-                 zoom: 16,
-                 center: myLatLng
-             };
-             var image = 'mylocation.png';
-             map = new google.maps.Map(document.getElementById('map'), mapOptions);
-             var beachMarker = new google.maps.Marker({
-                 position: myLatLng,
-                 map: map,
-                 icon: image
-             });
-    //html 문서안에 map-canvas 엘리먼트에 맵을 그리라고 하는 
-            
+         
+             
             
 
             //마커 정보
@@ -459,6 +445,30 @@
 
             ]
 
+           
+            
+             var map;
+         function initialize() {
+             var myLatLng = new google.maps.LatLng(latitude, longitude);
+             var mapOptions = {
+                 zoom: 16,
+                 center: myLatLng
+             };
+             var image = 'mylocation.png';
+             map = new google.maps.Map(document.getElementById('map'), mapOptions);
+             var beachMarker = new google.maps.Marker({
+                 position: myLatLng,
+                 map: map,
+                 icon: image
+             });
+            
+            
+            
+            
+            
+            
+            
+            
             //마커 이미지
             var customicon = 'http://samuelgalaxys.github.io/plastic/recycleicon.png'
 
