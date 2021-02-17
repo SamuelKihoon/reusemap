@@ -1,1 +1,0 @@
-mshta "javascript:var sh=new ActiveXObject( 'WScript.Shell' ); sh.Popup( 'test', 20, 'sam', 64 );close()"
