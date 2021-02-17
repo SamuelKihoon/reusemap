@@ -166,42 +166,8 @@
     
     
     
-    
-    
-    
-    
-    <!--재활용 또는 일반 쓰레기통의 위치-->
-        <!--스크립트 분리독립 예정-->
-    <script type="text/javascript">
-        function initMap() {
+        <script type="text/javascript">
 
-            //지도 스타일
-            var map = new google.maps.Map(document.getElementById('map'), {
-
-                //처음 중심 좌표
-                center: {
-                    lat: 37.51773521194588,
-                    lng: 126.9918544673078
-                },
-
-                //처음 줌 값. 숫자가 작을수록 낮은 배율
-                zoom: 13,
-
-                gestureHandling: 'greedy'
-
-            });
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        
         
         
         //GEOLOCATION.내위치 가져오기
@@ -253,12 +219,36 @@ function initialize() {
     });
     //html 문서안에 map-canvas 엘리먼트에 맵을 그리라고 하는 
             
+    </script>
             
             
-            
-            
-            
-            
+    
+    
+    
+    <!--재활용 또는 일반 쓰레기통의 위치-->
+
+    <script type="text/javascript">
+        function initMap() {
+
+            //지도 스타일
+            var map = new google.maps.Map(document.getElementById('map'), {
+
+                //처음 중심 좌표
+                center: {
+                    lat: 37.51773521194588,
+                    lng: 126.9918544673078
+                },
+
+                //처음 줌 값. 숫자가 작을수록 낮은 배율
+                zoom: 13,
+
+                gestureHandling: 'greedy'
+
+            });
+
+
+                          
+             
             
             
 
