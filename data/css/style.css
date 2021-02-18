@@ -38,10 +38,10 @@
   .t-header .t-header-brand-wrapper {
     display: flex;
     align-items: center;
-    height: 85px;
-    width: 18rem;
-    min-width: 18rem;
-    max-width: 18rem;
+    height: 65px;
+    width: 17rem;
+    min-width: 17rem;
+    max-width: 17rem;
     background: #fff;
     z-index: 100;
     padding-left: 18px; }
@@ -52,8 +52,8 @@
       font-weight: 500;
       font-size: 1.25rem; }
       .t-header .t-header-brand-wrapper a .logo {
-        max-width: 130%;
-        width: 120px; }
+        max-width: 140%;
+        width: 135px; }
       .t-header .t-header-brand-wrapper a .logo-mini {
         display: none;
         max-width: 100%;
