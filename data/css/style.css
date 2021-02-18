@@ -38,10 +38,10 @@
   .t-header .t-header-brand-wrapper {
     display: flex;
     align-items: center;
-    height: 65px;
-    width: 17rem;
-    min-width: 17rem;
-    max-width: 17rem;
+    height: 85px;
+    width: 18rem;
+    min-width: 18rem;
+    max-width: 18rem;
     background: #fff;
     z-index: 100;
     padding-left: 18px; }
