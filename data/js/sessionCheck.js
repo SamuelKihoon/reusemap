@@ -27,6 +27,7 @@
                                 //1.닉네임 변경하기
                                 document.getElementById("nicname").textContent = name
 
+                  
                                 //2.이미지가 존재하면, 이미지 url을 가져와서 img 태그에 넣어준다.
                                 if (snapshot.val().imgURl) {
                                     document.getElementById("myimage").src = snapshot.val().imgURl
