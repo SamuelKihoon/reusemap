@@ -1,3 +1,3 @@
-# reusemap - by HOONBEEN corp. 
+# reusemap co., ltd.
 <img src="backgroundlogo.png">
 -재활용 지도 리유스맵.
