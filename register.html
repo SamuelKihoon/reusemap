@@ -39,6 +39,8 @@
      </div>
 
 
+    
+
      <script>
          // HTML의 <script> 요소를 생성한다
          const se = document.createElement('script');
@@ -108,7 +110,9 @@
                  years = $('#select_year').val();
                  months = $('#select_month').val();
                  days = $('#select_day').val();
-
+                 
+                 leaf = 0;
+                 
                  var ipip = $('#greenip').val();
 
 
@@ -161,7 +165,7 @@
                                  pwd: password,
                                  birthday: years + "." + months + "." + days,
                                  ip: ipip,
-                                 leaf: 100,
+                                 leaf : leaf,
                                  userkey: userInfo.uid
                              };
 
@@ -266,3 +270,4 @@
  </body>
 
 </html >
+
