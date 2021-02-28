@@ -13,7 +13,9 @@
               document.getElementById("loginmenu").href = "login.html";
               document.getElementById("joinmenu").textContent = "반가워요! " + snapshot.val().name + " 님";
               document.getElementById("joinmenu").href = "#";
-  
+              document.getElementById("joinmenu").textContent = snapshot.val().leaf;
+
+                
               name = snapshot.val().name;   //유저 닉네임은 계속 쓸거기 때문에 전역변수로 할당
               loginUserKey = snapshot.key;  //로그인한 유저의 key도 계속 쓸 것이기 때문에 전역변수로 할당
               userInfo = snapshot.val(); //snapshot.val()에 user 테이블에 있는 해당 개체 정보가 넘어온다. userInfo에 대입!
