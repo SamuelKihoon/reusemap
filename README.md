@@ -1,4 +1,4 @@
-# reusemap co., ltd.
+# reusemap co., ltd. :: 과제도 많구 할것도 많고ㅜㅜ 출시는 6월달 이후로 미뤄야 할 것 같아ㅜㅜ
 <img src="backgroundlogo.png">
 리유스맵 - 가까운 거리의 실천
 
