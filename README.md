@@ -1,4 +1,4 @@
-# reusemap co., ltd. :: 과제도 많구 할것도 많고ㅜㅜ 출시는 6월달 이후로 미뤄야 할 것 같아ㅜㅜ
+# reusemap co., ltd. :: 아이디어 보호를 위해 비공개 프로젝트로 전환
 <img src="backgroundlogo.png">
 리유스맵 - 가까운 거리의 실천
 
@@ -26,7 +26,7 @@ iOS 연동 :  </br>
 
 앞으로의 계획 :  </br>
   </br>
-GPS_MYLOCATION 구현  </br>
+GPS_MYLOCATION 구현 (완료) </br>
 바코드 인식 구현  </br>
 개발자 노트 구현  </br>
 위치 반경 구현  </br>
@@ -39,12 +39,7 @@ GPS_MYLOCATION 구현  </br>
 구글 플레이와 앱스토어 출시  </br>
 서비스 시작  </br>
 브랜드 등록  </br>
-시가총액 1억 돌파  </br>
-코스닥KOSDAQ 상장  </br>
-투자 유치  </br>
-이건 사업이야  </br>
-(?)  </br>
-동담 반 진담 반  </br>
+시가총액 1억 돌파 유니콘되기 </br>
 
 
 
