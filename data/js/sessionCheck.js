@@ -1,6 +1,6 @@
     //유저가 로그인 했는지 안했는지 확인해주는 함수
     function userSessionCheck() {
-        console.log(currentTime);
+       // console.log(currentTime);
         //로그인이 되어있으면 - 유저가 있으면, user를 인자값으로 넘겨준다.
         firebaseEmailAuth.onAuthStateChanged(function (user) {
           
