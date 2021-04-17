@@ -13,7 +13,8 @@
               document.getElementById("loginmenu").href = "login.html";
            //   document.getElementById("joinmenu").textContent = "반가워요! " + snapshot.val().name + " 님";
              // document.getElementById("joinmenu").href = "#";
-              document.getElementById("leaf").textContent = snapshot.val().leaf;
+              document.getElementById("leaf").textContent = "테스트";
+//              document.getElementById("leaf").textContent = snapshot.val().leaf;
 
                 
               name = snapshot.val().name;   //유저 닉네임은 계속 쓸거기 때문에 전역변수로 할당
