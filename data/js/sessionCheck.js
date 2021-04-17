@@ -14,7 +14,7 @@
               document.getElementById("loginmenu").href = "login.html";
             //  document.getElementById("joinmenu").textContent = "반가워요! " + snapshot.val().name + " 님";
              // document.getElementById("joinmenu").href = "#";
-              document.getElementById("leaf").textContent = "바나나 씨앗 :" + snapshot.val().leaf + "개";
+              document.getElementById("leaf").textContent = "사과 씨앗 :" + snapshot.val().leaf + "개";
 //              document.getElementById("leaf").textContent = snapshot.val().leaf;
 
                 
