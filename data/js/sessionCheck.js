@@ -13,7 +13,7 @@
               document.getElementById("loginmenu").href = "login.html";
            //   document.getElementById("joinmenu").textContent = "반가워요! " + snapshot.val().name + " 님";
              // document.getElementById("joinmenu").href = "#";
-              document.getElementById("leaf").textContent = "테스트";
+              document.getElementById("leaf").textContent = Data.leaf;
 //              document.getElementById("leaf").textContent = snapshot.val().leaf;
 
                 
