@@ -8,12 +8,13 @@
             //조회 - 데이터 베이스에 저장된 닉네임을 현재 접속되어 있는 user의 pk key 값을 이용해서 가져오기
             firebaseDatabase.ref("users/" + user.uid).once('value').then(function (snapshot) {
               
+
               //자바스크립트 dom 선택자를 통해서 네비게이션 메뉴의 엘리먼트 변경해주기
               document.getElementById("loginmenu").textContent = "로그아웃";
               document.getElementById("loginmenu").href = "login.html";
            //   document.getElementById("joinmenu").textContent = "반가워요! " + snapshot.val().name + " 님";
              // document.getElementById("joinmenu").href = "#";
-              document.getElementById("leaf").textContent = Data.leaf;
+              document.getElementById("leaf").textContent = snapshot.val().leaf + "개";
 //              document.getElementById("leaf").textContent = snapshot.val().leaf;
 
                 
