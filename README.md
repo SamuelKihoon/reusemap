@@ -1,4 +1,4 @@
-# reusemap co., ltd. :: 아이디어 보호를 위해 비공개 프로젝트로 전환
+# reusemap co., ltd. :: 아이디어 보호를, 비공개 프로젝트로 전환
 <img src="backgroundlogo.png">
 리유스맵 - 가까운 거리의 실천
 
