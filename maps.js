@@ -24,6 +24,8 @@ var $map = $('#map-default'),
 
             gestureHandling: 'greedy'
 
+            
+
         });
 
         
