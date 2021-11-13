@@ -124,17 +124,15 @@
     <!-- Topnav -->
      
 <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+<nav class="navbar navbar-top navbar-expand navbar-dark border-bottom"  style="background: #0077ff;">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Search form -->
       <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
         <div class="form-group mb-0">
           <div class="input-group input-group-alternative input-group-merge">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-search"></i></span>
-            </div>
-            <input class="form-control" placeholder="Search" type="text">
+ 
+
           </div>
         </div>
         <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -308,24 +306,29 @@
 
 
 
-
     <!-- Header -->
-    <div class="header bg-primary pb-6">
+    <div class="header pb-6" style="background-color: #0077ff;">
       <div class="container-fluid">
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">쓸생일지를 쓰고 나무를 심어보세요.</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">쓸생일지 📜 </h6>
+
+ 
+ 
+              
+ 
+
+
+
+
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-arrow-down"></i> 익명 게시물 쓰기</a></li>
+                  <li style="float: left;" class="breadcrumb-item"><a data-toggle="modal" data-target="#modalUpdate" href="#"><i class="fas fa-arrow-down"></i> 쓸생 쓰기</a></li>
                 </ol>
               </nav>
             </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">버튼1</a>
-              <a href="#" class="btn btn-sm btn-neutral">버튼2</a>
-            </div>
+             
           </div>
           <!-- Card stats -->
            
@@ -338,97 +341,25 @@
     <!-- Page content -->
     <div class="container-fluid mt--6">
       
-      
+ 
       
       <div class="row">
  
-        <div class="col-xl-5">
+        <div class="col-xl-7 scrollh" id="scrollz" style="overflow:scroll;width:auto; height:1000px;">
 
 
-          <div class="card" style="background-color: #505050;">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h5 style="color: #ffffff; font-size: 22px" class="h3 mb-0">화성에 온것을 환영합니다.</h5>
-                  <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-
-                </div>
 
 
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">기능1</span>
-                        <span class="d-md-none">M</span>
-                      </a>
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">기능2</span>
-                        <span class="d-md-none">W</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
 
-              
-
-              </div>
-            </div>
-            <div class="card-body">
+          <div class="boardList"></div>
 
  
-              <a style="color: white;">sdsdsdsd</a>
+          <a  data-toggle="modal" data-target="#modalUpdate" href="#" class="float">
+            <i data-toggle="modal" data-target="#modalUpdate" class="fa fa-plus my-float"></i>
+          </a>
 
 
-            </div>
-          </div>
-
-
-          <div class="card" style="background-color: #505050;">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h5 style="color: #ffffff; font-size: 22px" class="h3 mb-0">소환사의 협곡에 오신것을 환영합니다.</h5>
-                  <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-
-                </div>
-
-
-                <!----
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">Month</span>
-                        <span class="d-md-none">M</span>
-                      </a>
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Week</span>
-                        <span class="d-md-none">W</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-              -->
-
-              </div>
-            </div>
-            <div class="card-body">
-
-
-              <!-- Chart -->
-              <img width="100%" src="https://mars.nasa.gov/system/news_items/main_images/8987_1-pia24730-ingenuity-spots-rover-tracks-during-ninth-flight.jpeg">
-              </br></br>
-              <a style="color: white;">sdsdsdsd</a>
-
-
-            </div>
-          </div>
+           
 
 
 
@@ -442,54 +373,80 @@
 
 
 
-        <div class="col-xl-5" id="scrollz" style="overflow:scroll;width:auto; height:1100px;">
+        <div class="col-xl-4 scrollh" id="scrollz" style="overflow:scroll;width:auto; height:1000px;">
 
 
 
 
-          <div class="card">
-            <div class="card-header" style="background-color: #2ea1ff;">
-              <div class="row align-items-center">
-                <div class="col">
-                  
-                  <h5 style="color: #ffffff; font-size: 22px" class="h3 mb-0">쓸생을 작성해보세요.</h5>
-
-                </div>
-              </div>
-            </div>
-            <div class="card-body" style="background-color: #2ea1ff;">
-            
-              <a data-toggle="modal" data-target="#modalUpdate" class="btn" style="width: 100%; background-color: #ffffff; color: rgb(36, 36, 36);" href="#"><i class="fas fa-arrow-up"></i> 쓸생 게시물 쓰기</a>
-            </div>
-          </div>
-
-
-
-
-          <div class="card">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h5 style="font-size: 20px" class="h3 mb-0">제목</h5>
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">작성자. 날짜 등등</h6>
-
-                </br>
-                <a>여기는 게시판 테스트 마한아존 게시판 테스트야. 이게 잘 작동할까? 음</a>
-                </div>
-
-              </div>
-            </div>
-            
-          </div>
-
+           
 
  
 
-          <div class="boardList"></div>
+
+          <div class="card">
+            <div class="card-header" style="background-color: #ffffff;">
+              <div class="row align-items-center">
+                <div class="col">
+                  
+                  <h5 style="color: #2b2b2b; font-size: 22px" class="h3 mb-0">쓸생을 작성해보세요✏️</h5>
+
+                </div>
+              </div>
+            </div>
+            <div class="card-body" style="background-color: #ffffff;">
+            
+              <a data-toggle="modal" data-target="#modalUpdate" class="btn" style="width: 100%; background-color: #b1cc80; color: rgb(48, 48, 48);" href="#"><i class="fas fa-arrow-up"></i> 쓸생 쓰기</a>
+            </div>
+          </div>
+
+           
 
 
 
 
+
+
+          
+          <div class="card" style="background-color: #79593c;">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 style="color: #ffffff; font-size: 22px" class="h3 mb-0">%seedtitle%</h5>
+                  <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
+                </div>
+
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <a style="color: white;">%seedvalue%</a>
+            </div>
+          </div>
+
+
+          <div class="card" style="background-color: #00ff80;">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 style="color: #000000; font-size: 22px" class="h3 mb-0">지역광고</h5>
+                  <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
+                </div>
+
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <a style="color: rgb(0, 0, 0);">%locala d_value%</a>
+            </div>
+          </div>
 
 
 
@@ -514,11 +471,13 @@
          
       </div>
       <!-- Footer -->
+
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
-              &copy; 2021 <a href="#" class="font-weight-bold ml-1" target="_blank">Kihoon,Yebeen. All rights reserved.</a>
+            </br>
+              &copy; 2021 <a href="#" class="font-weight-bold ml-1" target="_blank">naamuib reusemap (by HB), All rights reserved.</a>
             </div>
           </div>
           <div class="col-lg-6">
@@ -527,18 +486,19 @@
               
               
               <li class="nav-item">
-                <a href="_____" class="nav-link" target="_blank">About Us</a>
+                <a id="doact" href="https://www.google.com" class="nav-link" target="_blank">About Us</a>
               </li>
               <li class="nav-item">
-                <a href="_____" class="nav-link" target="_blank">개인정보처리방침</a>
+                <a href="https://www.google.com" class="nav-link" target="_blank">개인정보처리방침</a>
               </li>
-              <li class="nav-item">
-                <a href="_____" class="nav-link" target="_blank">오픈소스 라이선스</a>
-              </li>
+              
+              
             </ul>
           </div>
         </div>
       </footer>
+
+       
     </div>
   </div>
 
@@ -561,19 +521,17 @@
 			<div class="modal-body text-center">									
  					 
  						
-            <div class="card-header">
-              <div class="card-title"><a style="color: rgb(44, 43, 44); font-size: 24px;"><strong>익명 게시판</strong></a></div>
-            </div>
+            
             <div class="form-group">			 
 
              <div class="card-body">
-              <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="subject" id="subject" cols="30" placeholder="익명 게시물 제목"></textarea></br>
-              <textarea style="font-size: 15px;" class="form-control w-100" rows="7" name="comment" id="comment" cols="30" placeholder="익명 게시판의 이용에 따른 책임은 사용자에게 있으며, 특정 학생을 대상으로 한 저격,비방과 희롱 등 불쾌감을 유발하는 글은 봇에 의해 이유불문 삭제됩니다."></textarea></br>
+              <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="subject" id="subject" cols="30" placeholder="쓸생 타이틀"></textarea></br>
+              <textarea style="font-size: 15px;" class="form-control w-100" rows="9" name="comment" id="comment" cols="30" placeholder="쓸생을 적어보세요 :)"></textarea></br>
 
               <div class="card-sub">		
          
                                       
-                 <button type="button" class="button button-contactForm btn_1 boxed-btn btn btn-primary write" id="write" name="write" style="width: 100%; background-color: #505050;">익명 게시물 쓰기</button> 
+                 <button type="button" class="button button-contactForm btn_1 boxed-btn btn btn-primary write" id="write" name="write" style="width: 100%; background-color: #505050;">쓸생하기</button> 
  
               </div>
 
@@ -599,6 +557,45 @@
 </div>
 
 
+
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="modalUpdateN" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #ffd900;">
+				<h6 class="modal-title"><i class="la la-info-circle"></i> 공지</h6>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">									
+				<div id="scrollmodal" class="card" style="overflow:scroll;width:auto; height:400px;">
+					 
+					<div class="card-body">
+						<div class="card-sub">
+							공지가 여기에 표시됩니다. 
+						</div>
+						<div class="noticelist"></div>
+
+						
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
  <!-- Core -->
  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -616,16 +613,20 @@
 <script src="../assets/js/sessionCheck.js"></script>
 <!--스크립트 부분. 자신의 스크립트 코드로 변경하세요! -->
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<script src="../assets/js/time.js"></script>
+<!--login유무 session js 파일 -->
+<script src="../assets/js/sessionCheck.js"></script>
+<!--스크립트 부분. 자신의 스크립트 코드로 변경하세요! -->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<script src="../modal.js"></script>
+
+
 <script>
 	
 	
-    //2초후 실행
-    setTimeout(function() {
-    //	var element = document.getElementById("scrollz");
-    //    element.scrollTop = element.scrollHeight;  //스크롤 내리기
-		$("#modalUpdateN").modal('show');
-
-    }, 1000);
+ 
 
      
 
@@ -647,6 +648,7 @@
 	var name; //유저 이름
 	var loginUserKey; //로그인한 유저의 부모 key
 	var userInfo; //로그인한 유저의 정보 object type
+  var brdno;
 
 
 
@@ -655,14 +657,14 @@
 
 	//파이어 베이스 초기화 코드
 	var config = {
-		apiKey: "AIzaSyDQLUtjdMgOLDIZlPusi5YPKBiuQduD9Go",
-		databaseURL: "https://mhazone-mha-default-rtdb.firebaseio.com/",
-        authDomain: "mhazone-mha.firebaseapp.com",
-        projectId: "mhazone-mha",
-        storageBucket: "mhazone-mha.appspot.com",
-        messagingSenderId: "967342331429",
-        appId: "1:967342331429:web:8a5689ea4c254f037951cc",
-        measurementId: "G-Z33QJ15H02"
+    apiKey: "AIzaSyBwOqfjqsnDHYBx0H90ob4J_ZosWF2MdLg",
+  authDomain: "seedgreendata.firebaseapp.com",
+  databaseURL: "https://seedgreendata-default-rtdb.firebaseio.com",
+  projectId: "seedgreendata",
+  storageBucket: "seedgreendata.appspot.com",
+  messagingSenderId: "327441750186",
+  appId: "1:327441750186:web:5d81abb5e75e821ca658d3",
+  measurementId: "G-XD6C0TDX2D"
 	 
 	};
 	//파이어베이스 초기화
@@ -671,6 +673,8 @@
 	firebaseEmailAuth = firebase.auth();
 	//데이터베이스 모듈객체 가져오기
 	firebaseDatabase = firebase.database();
+
+  
 
 	//세션 체크 함수
 	userSessionCheck();
@@ -693,7 +697,9 @@
 				//저장하기
 				saveThanks();
 			} else {
-				alert("로그인이 필요한 서비스 입니다.")
+				alert("쓸생은 로그인을 필요로 합니다!")
+        window.location.href = "loginform.html"
+
 			}
 		});
 
@@ -706,7 +712,7 @@
 				window.location.href = "create.html"
 
 			} else {
-				alert("로그인이 필요한 서비스 입니다.")
+				alert("비 로그인 이용자는 마한아 익명 게시판을 이용할 수 없습니다.")
 				window.location.href = "loginform.html"
 
 			}
@@ -723,12 +729,12 @@
 	//쓰기 버튼 눌렀을 때 호출 되는 함수
 	function saveThanks() {
 
-		//thanks 라는 테이블을 만들고 하위 데이터에 유저 아이디를 넣어준다. 그곳에 push로 가상의 키를 넣고, 객체를 넣어준다.!!!!
+		//anounymous 라는 테이블을 만들고 하위 데이터에 유저 아이디를 넣어준다. 그곳에 push로 가상의 키를 넣고, 객체를 넣어준다.!!!!
 		var thankRef = firebaseDatabase.ref("boards");
-
 		// 해당 객체의 key 값이 자동으로 생성된다.
 		var thank = thankRef.push(); // 해당 객체의 key 값이 자동으로 생성된다.
 
+    var boardno = thank.key; //이 보드의 키값
 
 
 
@@ -738,7 +744,9 @@
 			userkey: loginUserKey,
 			comment: comment,
 			subject: subject,
-			createtime: currentTime
+      boardno: boardno,  //이 보드의 키값
+      cmtcount : 0,
+      createtime: currentTime
 		};
 		//위에서 thankRef.push()로 만들어진 key아래 위치에 저장해준다.
 		thank.set(obj);
@@ -752,6 +760,8 @@
 	}
 
 
+ 
+
 
 	//글 목록가져와서 뿌려주기
 	function boardList() {
@@ -764,26 +774,42 @@
 			var thanksRef = firebaseDatabase.ref('boards');
 			//on 함수로 글 목록가져오기
 			thanksRef.on('child_added', on_thanks_list)
+      thanksRef.on('value', buttonadd)
+
+
+
 			var thanksRef = firebaseDatabase.ref('notice');
 			thanksRef.on('child_added', on_notice_list)
 
 		} else {
-			//로그인 아니어도 글 보이게
-			//alert(loginUserKey)
-			//글이 저장된 레퍼런스 값 가져오기
+
+
 			var thanksRef = firebaseDatabase.ref('boards');
+			//on 함수로 글 목록가져오기
 			thanksRef.on('child_added', on_thanks_list)
+      thanksRef.on('value', buttonadd)
+
+
 
 			var thanksRef = firebaseDatabase.ref('notice');
 			thanksRef.on('child_added', on_notice_list)
+
+
+
 		}
 
 	}
 
 	//게시판 리스트 thanks 테이블의 thanks 키 들을 연속적으로 가져옴...ㅋㅋㅋㅋㅋ
 	function on_thanks_list(data) {
+
+ 
+    
+
+
 		console.log("on_thanks_list() 함수안으로 들어왔습니다 리스트를 가져오겠습니다")
 		var key = data.key;
+    
 
 		var Data = data.val();
 		var comment = Data.comment;
@@ -791,6 +817,11 @@
 		var name = Data.name;
 		var subject = Data.subject;
 		var userkey = Data.userkey;
+    var cmtcount = Data.cmtcount;
+    var brdnm = Data.boardno;
+
+    
+    var boardno = Data.key; //이 보드의 키값
 
 		//무슨값이 넘어오는지 찍어보세요
 		//alert(comment +"/"+ createtime + "/"+name +"/"+userkey);
@@ -804,21 +835,36 @@
 
  
 
-    
-                "<div class=\"card\" id='" + userkey + "' onclick=\"show_user_page(this.id)\">" +
+    //게시물 아이디도 id=게시물아이디 + 아이디 (this.id) 해서 추가하기
+                "<div class=\"card\" id='" + brdnm + "' onclick=\"show_board_page(this.id)\">" +
                 "<div class=\"card-header bg-transparent\">" + "<div class=\"row align-items-center\">" + "<div class=\"col\">" +
-                "<h5 style=\"font-size: 20px\" class=\"h3 mb-0\">" + "<a href=\"http://google.com\">" + subject +"</a></h5>" +
-                "<h6 class=\"text-uppercase text-muted ls-1 mb-1\">" + name + " :: " + createtime + "</h6>" +
-                "</br>" +
-                "<a>" + comment + "</a>" +
+                "<h5 style=\"font-size: 16px\" class=\"h3 mb-0\">" + "<a onclick=\"gotoComments(this.id)\">" + subject +"</a></h5>" +
+                "<h6 style=\"font-size: 9px\" class=\"text-uppercase text-muted ls-1 mb-1\">" + name + " : " + createtime + "</h6>" +
+
+                "<a style=\"font-size: 13px\">" + comment + "</a></br>" + "<a style=\"color: gray; font-size: 12px; float: right;\">" + "<i class=\"mdi mdi-chat text-blue\"></i>" + " " + cmtcount + "</a>" +
                 "</div></div></div></div>";
 
          //   $(".thanksList").append(html);   //아래로 붙이기
             $(".boardList").prepend(html);   //위로 붙이기
 
+
+
  
 
 	}
+
+
+
+
+  function show_board_page(key) {
+        location.href="comments.html?"+ key;
+          
+ }
+
+  
+ 
+
+ 
 
 
 
@@ -852,7 +898,40 @@
 
 	}
 
+
+
+  
+  function buttonadd(data){
+ 		var key = data.key; //@Hㅁ1 없ㄴ
+		var Data = data.val();
+		var comment = Data.comment;
+		var createtime = Data.createtime;
+		var name = Data.name;
+		var subject = Data.subject;
+		var userkey = Data.userkey;
+      //리스트 동적으로 붙이기
+      var btnside =
+
+"<li class=\"nav-item\">" +"<a class=\"nav-link\" id='" + loginUserKey + "' onclick=\"chat(this.id)\">" +
+"<i class=\"ni ni-send text-blue\">"+"</i>" +
+"<span class=\"nav-link-text\">"+ "전체채팅" +"</span></a>"+ "</li>";
+
+//   $(".thanksList").append(html);   //아래로 붙이기
+$(".btnz").prepend(btnside);   //위로 붙이기
+  }
+ 
+  //채팅으로UID전달하는함수
+  function chat(key){ 
+ location.href="chatting/chat.html?" + key ;
+ alert(key);
+ }
+
+
+
+
+
 </script>
+
 
    
 </body>
