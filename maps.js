@@ -2,6 +2,8 @@
 // Google maps
 //
 
+
+
 var $map = $('#map-default'),
     map,
     lat,
@@ -19,6 +21,7 @@ var $map = $('#map-default'),
                 lng: 126.9918544673078
             },
 
+ 
             //처음 줌 값. 숫자가 작을수록 낮은 배율
             zoom: 13,
 
@@ -30,10 +33,7 @@ var $map = $('#map-default'),
 
         
 
-
-             
-        
-      
+ 
         
 
         //마커 정보
