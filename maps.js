@@ -12,32 +12,140 @@ var $map = $('#map-default'),
 
     function initMap() {
 
-        //지도 스타일
         var map = new google.maps.Map(document.getElementById('map-default'), {
 
             //처음 중심 좌표
             center: {
                 lat: 37.51773521194588,
                 lng: 126.9918544673078
-            },
-
- 
-            //처음 줌 값. 숫자가 작을수록 낮은 배율
-            zoom: 13,
-
-            gestureHandling: 'greedy'
-
-            
+            },zoom: 13,gestureHandling: 'greedy'
 
         });
 
+ 
+
+
+
+
+
+        function getLocation() {
+            if (navigator.geolocation) { // GPS를 지원하면
+              navigator.geolocation.getCurrentPosition(function(position) {
+
+                //팝업창에 띄우기
+              //  alert(position.coords.latitude + ' ' + position.coords.longitude);
+
+              //지도 초기 설정
+                var map = new google.maps.Map(document.getElementById('map-default'), {
+
+                    //처음 중심 좌표
+                    center: {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    },zoom: 18,gestureHandling: 'greedy'
+ 
+                    
+ 
+
+
+                });
+
+
+
+
+
+        //마커 생성
+        var marker, i;
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                icon: customicon,
+                map: map
+            });
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+            if (marker) {
+                marker.addListener('click', function () {
+                    map.setCenter(this.getPosition());
+                    map.setZoom(14);
+                });
+            }
+        }
+        //마커 생성
+
+
+
+              }, function(error) {
+                console.error(error);
+              }, {
+                enableHighAccuracy: false,
+                maximumAge: 0,
+                timeout: Infinity
+              });
+
+            } else {
+              
+                var map = new google.maps.Map(document.getElementById('map-default'), {
+
+                    //처음 중심 좌표
+                    center: {
+                        lat: 37.51773521194588,
+                        lng: 126.9918544673078
+                    },zoom: 10,gestureHandling: 'greedy'
         
+                });
+
+
+            }
+        }
+          getLocation();
 
  
+ 
+          
+
+        //지도 위에 표시할 마커와 인포윈도우 객체 생성
+        function addgooglemappinusingfirebase(lat, lng, name, address) {
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: lat,
+                    lng: lng
+                },
+                map: map,
+                title: name,
+                label: {
+                    text: name,
+                    color: color,
+                    fontSize: '18px',
+                    fontWeight: 'bold'
+                }
+            });
+            var content = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h4 id="firstHeading" class="firstHeading">' + name + '</h4>' +
+                '<div id="bodyContent">' +
+                '<p><b>' + address + '</b></p>' +
+                '</div>' +
+                '</div>';
+            var infowindow = new google.maps.InfoWindow({
+                content: content
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+
         
 
+  
         //마커 정보
         var locations = [
+
 
 
             //경복궁 마커
@@ -302,9 +410,15 @@ var $map = $('#map-default'),
 
 
     function gps_click() {
-        alert("GPS.");
+      
      
-     
+        initMap();
+
+        
+
+
+
+
       
              //GEOLOCATION.내위치 가져오기
     window.onload = getLocation; 
@@ -356,6 +470,7 @@ var $map = $('#map-default'),
          });
     }
      
+    
      
      
      

@@ -168,11 +168,6 @@
               </a>
             </li>
 
-            <a class="nav-link" href="#" id="gps" onclick="gps_click()" role="button" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-arrow-down"></i>
-            </a>
-
-            
 
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -218,7 +213,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-
+                            
                             <h4 class="mb-0 text-sm">English</h4>
                           </div>
                           
@@ -356,10 +351,38 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+
+
+
+            
+           <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+         
+         
+         
+         
           </div>
         </div>
       </div>
+
+
+      
+      <div class="card">
+        <div class="card-header" style="background-color: #fafeff;">
+          <div class="row align-items-center">
+            <div class="col">
+              
+              <h5 style="color: #4217ff; font-size: 22px" class="h3 mb-0">지도에 핀 추가하기</h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="card-body" style="background-color: #fafeff;">
+        
+          <a data-toggle="modal" data-target="#modalUpdate" class="btn" style="width: 100%; background-color: #4217ff; color: rgb(255, 255, 255);" href="#"><i class="fas fa-arrow-up"></i> 추가</a>
+        </div>
+      </div>
+
+
       <!-- Footer -->
       
       
@@ -395,6 +418,60 @@
   <!-- Argon Scripts -->
   <!-- Core -->
 
+  <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(42, 221, 138);">
+          <h6 class="modal-title" style="color: #494848;"><i class="fas fa-arrow-up"></i><strong> 쓰기</strong></h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+        <div class="modal-body text-center">									
+              
+               
+              <div class="card-header">
+                <div class="card-title"><a style="color: rgb(44, 43, 44); font-size: 24px;"><strong>핀추가</strong></a></div>
+              </div>
+              <div class="form-group">			 
+  
+               <div class="card-body">
+                <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="subject" id="subject" cols="30" placeholder="subject"></textarea></br>
+
+                <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="xlocation" id="xlocation" cols="30" placeholder="X"></textarea></br>
+                <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="ylocation" id="ylocation" cols="30" placeholder="Y"></textarea></br>
+
+                <textarea style="font-size: 15px;" class="form-control w-100" rows="9" name="comment" id="comment" cols="30" placeholder="익명 게시판의 이용에 따른 책임은 사용자에게 있으며, 특정 학생을 대상으로 한 저격,비방과 희롱 등 불쾌감을 유발하는 글은 봇에 의해 이유불문 삭제됩니다."></textarea></br>
+  
+                <div class="card-sub">		
+           
+                                        
+                   <button type="button" class="button button-contactForm btn_1 boxed-btn btn btn-primary write" id="write" name="write" style="width: 100%; background-color: #505050;">익명게시물 쓰기</button> 
+   
+                </div>
+  
+              </div>
+  
+                 </div>
+  
+  
+              
+         </div>
+  
+         <!----
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+  
+      -->
+  
+  
+  
+      </div>
+    </div>
+  </div>
+  
 
 
   
@@ -453,16 +530,16 @@
   
     //파이어 베이스 초기화 코드
     var config = {
-      apiKey: "AIzaSyDQLUtjdMgOLDIZlPusi5YPKBiuQduD9Go",
-      databaseURL: "https://mhazone-mha-default-rtdb.firebaseio.com/",
-          authDomain: "mhazone-mha.firebaseapp.com",
-          projectId: "mhazone-mha",
-          storageBucket: "mhazone-mha.appspot.com",
-          messagingSenderId: "967342331429",
-          appId: "1:967342331429:web:8a5689ea4c254f037951cc",
-          measurementId: "G-Z33QJ15H02"
-     
-    };
+    apiKey: "AIzaSyBwOqfjqsnDHYBx0H90ob4J_ZosWF2MdLg",
+  authDomain: "seedgreendata.firebaseapp.com",
+  databaseURL: "https://seedgreendata-default-rtdb.firebaseio.com",
+  projectId: "seedgreendata",
+  storageBucket: "seedgreendata.appspot.com",
+  messagingSenderId: "327441750186",
+  appId: "1:327441750186:web:5d81abb5e75e821ca658d3",
+  measurementId: "G-XD6C0TDX2D"
+	 
+	};
     //파이어베이스 초기화
     firebase.initializeApp(config);
     //인증모듈 객체 가져오기
@@ -484,8 +561,8 @@
         var seseionCheck = document.getElementById("loginmenu").textContent;
   
         //텍스트 필드에 있는 내용 가져오기!!!!
-        comment = $('#comment').val();
-        subject = $('#subject').val();
+        comment = $('#xlocation').val();
+        subject = $('#ylocation').val();
   
         if (seseionCheck == "로그아웃") {
           //저장하기
@@ -522,7 +599,7 @@
     function saveThanks() {
   
       //thanks 라는 테이블을 만들고 하위 데이터에 유저 아이디를 넣어준다. 그곳에 push로 가상의 키를 넣고, 객체를 넣어준다.!!!!
-      var thankRef = firebaseDatabase.ref("boards");
+      var thankRef = firebaseDatabase.ref("maps");
   
       // 해당 객체의 key 값이 자동으로 생성된다.
       var thank = thankRef.push(); // 해당 객체의 key 값이 자동으로 생성된다.
@@ -534,9 +611,10 @@
       var obj = {
         name: name,
         userkey: loginUserKey,
-        comment: comment,
-        subject: subject,
-        createtime: currentTime
+        x: xlocation,
+        y: ylocation,
+        createtime: currentTime,
+        comment: comment
       };
       //위에서 thankRef.push()로 만들어진 key아래 위치에 저장해준다.
       thank.set(obj);
@@ -544,8 +622,8 @@
       
       alert("글이 업로드 되었습니다");
   
-      $('#comment').val("");
-      $('#subject').val("");
+      $('#xlocation').val("");
+      $('#ylocation').val("");
   
     }
   
