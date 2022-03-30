@@ -437,7 +437,7 @@
               <div class="form-group">			 
   
                <div class="card-body">
-                <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="subject" id="subject" cols="30" placeholder="subject"></textarea></br>
+                <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="subject" id="subject" cols="30" placeholder="X"></textarea></br>
 
                 <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="xlocation" id="xlocation" cols="30" placeholder="X"></textarea></br>
                 <textarea style="font-size: 20px;" class="form-control w-100" rows="1" name="ylocation" id="ylocation" cols="30" placeholder="Y"></textarea></br>
@@ -530,14 +530,14 @@
   
     //파이어 베이스 초기화 코드
     var config = {
-    apiKey: "AIzaSyBwOqfjqsnDHYBx0H90ob4J_ZosWF2MdLg",
-  authDomain: "seedgreendata.firebaseapp.com",
-  databaseURL: "https://seedgreendata-default-rtdb.firebaseio.com",
-  projectId: "seedgreendata",
-  storageBucket: "seedgreendata.appspot.com",
-  messagingSenderId: "327441750186",
-  appId: "1:327441750186:web:5d81abb5e75e821ca658d3",
-  measurementId: "G-XD6C0TDX2D"
+      apiKey: "AIzaSyDQLUtjdMgOLDIZlPusi5YPKBiuQduD9Go",
+		databaseURL: "https://mhazone-mha-default-rtdb.firebaseio.com/",
+        authDomain: "mhazone-mha.firebaseapp.com",
+        projectId: "mhazone-mha",
+        storageBucket: "mhazone-mha.appspot.com",
+        messagingSenderId: "967342331429",
+        appId: "1:967342331429:web:8a5689ea4c254f037951cc",
+        measurementId: "G-Z33QJ15H02"
 	 
 	};
     //파이어베이스 초기화
@@ -550,7 +550,8 @@
     //세션 체크 함수
     userSessionCheck();
   
-  
+   
+ 
   
     $(document).ready(function () {
   
@@ -560,10 +561,39 @@
         //네비게이션 메뉴의 text값 가져오기 - 자바스크립트 dom 방식으로 가져왔다.
         var seseionCheck = document.getElementById("loginmenu").textContent;
   
-        //텍스트 필드에 있는 내용 가져오기!!!!
-        comment = $('#xlocation').val();
-        subject = $('#ylocation').val();
-  
+ 
+
+
+
+        //GPS값 데이터베이스에 추가
+        if (navigator.geolocation) { // GPS를 지원하면
+              navigator.geolocation.getCurrentPosition(function(position) {
+                
+                
+                xlocation = position.coords.latitude;
+                ylocation = position.coords.longitude;
+                subject = $('#subject').val();
+                comment = $('#comment').val();
+
+
+                
+              }, function(error) {
+                console.error(error);
+              }, {
+                enableHighAccuracy: false,
+                maximumAge: 0,
+                timeout: Infinity
+              });
+            } else {
+              alert("위치정보를 지원하지 않습니다.");
+            }
+
+
+
+
+
+
+
         if (seseionCheck == "로그아웃") {
           //저장하기
           saveThanks();
@@ -620,11 +650,15 @@
       thank.set(obj);
     
       
-      alert("글이 업로드 되었습니다");
+      alert("마커가 추가되었습니다.");
   
       $('#xlocation').val("");
       $('#ylocation').val("");
   
+
+      window.location.reload();
+      setTimeout(refreshwebpage, 1000);
+
     }
   
   
