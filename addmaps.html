@@ -635,19 +635,46 @@
   
   
   
+
+
+        //GPS값 데이터베이스에 추가
+        if (navigator.geolocation) { // GPS를 지원하면
+              navigator.geolocation.getCurrentPosition(function(position) {
+                
+                xlocation = position.coords.latitude;
+                ylocation = position.coords.longitude;
+                      //로그인한 유저의 pk값,이름,내용,시간 데이터
+                      var obj = {
+                        name: name,
+                        userkey: loginUserKey,
+                        subject: subject,
+                        x: xlocation,
+                        y: ylocation,
+                        createtime: currentTime,
+                        comment: comment
+                      };
+                //위에서 thankRef.push()로 만들어진 key아래 위치에 저장해준다.
+    
+               thank.set(obj);
+
+                
+              }, function(error) {
+                console.error(error);
+              }, {
+                enableHighAccuracy: false,
+                maximumAge: 0,
+                timeout: Infinity
+              });
+            } else {
+              alert("위치정보를 지원하지 않습니다.");
+            }
+
+ 
+       
+
+
   
-      //로그인한 유저의 pk값,이름,내용,시간 데이터
-      var obj = {
-        name: name,
-        userkey: loginUserKey,
-        subject: subject,
-        x: xlocation,
-        y: ylocation,
-        createtime: currentTime,
-        comment: comment
-      };
-      //위에서 thankRef.push()로 만들어진 key아래 위치에 저장해준다.
-      thank.set(obj);
+ 
     
       
       alert("마커가 추가되었습니다.");
@@ -659,6 +686,13 @@
       window.location.reload();
       setTimeout(refreshwebpage, 1000);
 
+      
+
+
+
+
+      
+
     }
   
   
@@ -667,6 +701,11 @@
     function boardList() {
       //alert("보드 로드 완료")
   
+
+ 
+
+
+
       //로그인한 유저라면
       if (loginUserKey) {
         //alert(loginUserKey)
@@ -724,7 +763,7 @@
                   "</div></div></div></div>";
   
            //   $(".thanksList").append(html);   //아래로 붙이기
-              $(".boardList").prepend(html);   //위로 붙이기
+              $(".map-canvas").prepend(html);   //위로 붙이기
   
    
   
@@ -743,6 +782,7 @@
       var name = Data.name;
       var subject = Data.subject;
       var userkey = Data.userkey;
+     // var userkey = Data.subject;
   
       //무슨값이 넘어오는지 찍어보세요
       //alert(comment +"/"+ createtime + "/"+name +"/"+userkey);

@@ -21,10 +21,25 @@ var $map = $('#map-default'),
             },zoom: 13,gestureHandling: 'greedy'
 
         });
-
  
 
 
+ 
+
+        var dbRef= firebase.database().ref('maps');
+        dbRef.on('value', function(snapshot) {
+        snapshot.forEach(function(child) {
+        var childs=child.val();
+        var marker = new google.maps.Marker({
+              position: {lat: childs.lat, lng: childs.lang},
+              map: map
+              });
+           });
+       });
+
+       
+
+       
 
 
 
@@ -105,6 +120,7 @@ var $map = $('#map-default'),
           getLocation();
 
  
+          
  
           
 
@@ -141,6 +157,12 @@ var $map = $('#map-default'),
         }
 
         
+
+
+ 
+
+
+
 
   
         //마커 정보
