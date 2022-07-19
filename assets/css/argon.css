@@ -5950,8 +5950,8 @@ input[type='button'].btn-block
     }
     .navbar-expand-sm .navbar-nav .nav-link
     {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
     }
     .navbar-expand-sm > .container,
     .navbar-expand-sm > .container-fluid,
@@ -6005,8 +6005,8 @@ input[type='button'].btn-block
     }
     .navbar-expand-md .navbar-nav .nav-link
     {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
     }
     .navbar-expand-md > .container,
     .navbar-expand-md > .container-fluid,
@@ -6060,8 +6060,8 @@ input[type='button'].btn-block
     }
     .navbar-expand-lg .navbar-nav .nav-link
     {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
     }
     .navbar-expand-lg > .container,
     .navbar-expand-lg > .container-fluid,
@@ -6115,8 +6115,8 @@ input[type='button'].btn-block
     }
     .navbar-expand-xl .navbar-nav .nav-link
     {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
     }
     .navbar-expand-xl > .container,
     .navbar-expand-xl > .container-fluid,
@@ -9141,7 +9141,7 @@ button.bg-darker:focus
 .rounded-circle,
 .avatar.rounded-circle img
 {
-    border-radius: 50% !important;
+    border-radius: 42% !important;
 }
 
 .rounded-pill
@@ -11146,7 +11146,7 @@ button.bg-darker:focus
 .pt-3,
 .py-3
 {
-    padding-top: 1rem !important;
+    padding-top: 24px !important;
 }
 
 .pr-3,
@@ -11158,7 +11158,7 @@ button.bg-darker:focus
 .pb-3,
 .py-3
 {
-    padding-bottom: 1rem !important;
+    padding-bottom: 24px !important;
 }
 
 .pl-3,
@@ -19978,7 +19978,7 @@ a.btn-icon-only
 {
     min-width: 420px;
 
-    border-radius: .4375rem;
+    border-radius: 20px;
 }
 
 .footer
@@ -20670,7 +20670,7 @@ textarea[resize='horizontal']
     width: 100%;
     height: 500px;
 
-    border-radius: .375rem;
+    border-radius: 24px;
 }
 
 .mask
@@ -22405,7 +22405,7 @@ textarea[resize='horizontal']
 
 .sidenav-toggler-dark .sidenav-toggler-line
 {
-    background-color: #fff;
+    background-color: #4e6c53;
 }
 
 .sidenav-toggler
