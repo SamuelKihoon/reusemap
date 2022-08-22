@@ -1,7 +1,5 @@
 <script src="https://cdn.firebase.com/libs/geofire/4.1.2/geofire.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/geofire/4.1.2/geofire.min.js"></script>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,75 +22,36 @@
     <!-- Place this inside the HTML head; don't use async defer for now -->
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/geofire/4.1.2/geofire.min.js"></script>
- 
+
+  <script>
+        
+        var config = {
+          apiKey: "AIzaSyDQLUtjdMgOLDIZlPusi5YPKBiuQduD9Go",
+		databaseURL: "https://mhazone-mha-default-rtdb.firebaseio.com/",
+        authDomain: "mhazone-mha.firebaseapp.com",
+        projectId: "mhazone-mha",
+        storageBucket: "mhazone-mha.appspot.com",
+        messagingSenderId: "967342331429",
+        appId: "1:967342331429:web:8a5689ea4c254f037951cc",
+        measurementId: "G-Z33QJ15H02"
+  };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+        }
+        
+        //Create a node at firebase location to add locations as child keys
+        var locationsRef = firebase.database().ref("locations");
+        
+        // Create a new GeoFire key under users Firebase location
+        var geoFire = new GeoFire(locationsRef.push());
+      </script>
 
 
   </head>
   <body>
     <div id="map"></div>
     <script>
-
-
-
-
-
-
-
-
-function initialize() {
-  var infowindow = new google.maps.InfoWindow();
-  var map = new google.maps.Map(
-    document.getElementById("map_canvas"), {
-      center: new google.maps.LatLng(37.4419, -122.1419),
-      zoom: 13,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyC8HcClvIT_FlG8ZwCji4LG-qNx8D9VCrs",
-    authDomain: "geocodeziptest.firebaseapp.com",
-    databaseURL: "https://geocodeziptest.firebaseio.com",
-    projectId: "geocodeziptest",
-    storageBucket: "geocodeziptest.appspot.com",
-    messagingSenderId: "1096545848604"
-  };
-  firebase.initializeApp(config);
-
-  //Create a node at firebase location to add locations as child keys
-  var locationsRef = firebase.database().ref("locations");
-  var bounds = new google.maps.LatLngBounds();
-  locationsRef.on('child_added', function(snapshot) {
-    var data = snapshot.val();
-    console.log(data);
-var marker = new google.maps.Marker({
-      position: {
-        lat: data.lat,
-        lng: data.lng
-      },
-      map: map
-    });
-    bounds.extend(marker.getPosition());
-    marker.addListener('click', (function(data) {
-      return function(e) {
-        infowindow.setContent(data.name + "<br>" + this.getPosition().toUrlValue(6) + "<br>" + data.message);
-        infowindow.open(map, this);
-      }
-    }(data)));
-    map.fitBounds(bounds);
-  });
-}
-google.maps.event.addDomListener(window, "load", initialize);
-
-
-
-
-
-
-
-
-
-
-
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
@@ -100,6 +59,9 @@ google.maps.event.addDomListener(window, "load", initialize);
 
       var map, infoWindow;
       var lat, lng;
+ 
+
+
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -107,18 +69,21 @@ google.maps.event.addDomListener(window, "load", initialize);
         });
         infoWindow = new google.maps.InfoWindow;
 
+
+
+
+
+        
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            lat = position.coords.latitude;
-            lng = position.coords.longitude;
-
-            var pos = {lat: lat, lng: lng };
-                _setGeoFire();
+      navigator.geolocation.getCurrentPosition(function(position) {
+         lat= position.coords.latitude;
+         lng= position.coords.longitude;
+            var pos = {lat: lat, lng: lng };_setGeoFire();
           
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('내위치.');
             infoWindow.open(map);
             map.setCenter(pos);
           }, function() {
@@ -129,6 +94,11 @@ google.maps.event.addDomListener(window, "load", initialize);
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
+
+
+
+
+
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
