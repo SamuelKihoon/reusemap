@@ -3,13 +3,8 @@
 * Argon Dashboard - v1.2.0
 =========================================================
 * Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-
 * Copyright  Creative Tim (http://www.creative-tim.com)
 * Coded by www.creative-tim.com
-
-
-
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
@@ -22,7 +17,7 @@
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
   <title>naamuib - reusemap</title>
-  <script src="main.js"></script>
+
  
 
   <!-- Favicon -->
@@ -362,7 +357,7 @@
 
 
             
-           <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+           <div id="map-default" class="map-canvas" data-lat="37.51773521194588" data-lng="126.9918544673078" style="height: 600px;"></div>
          
 
 
@@ -562,8 +557,6 @@
   
    
  
-
- 
   
     $(document).ready(function () {
   
@@ -707,139 +700,224 @@
       
 
     }
-   
+  
+  
+  
+    //글 목록가져와서 뿌려주기
+    function boardList() {
+      //alert("보드 로드 완료")
+  
+
+ 
+
+
+
+      //로그인한 유저라면
+      if (loginUserKey) {
+        //alert(loginUserKey)
+        //글이 저장된 레퍼런스 값 가져오기
+        var thanksRef = firebaseDatabase.ref('boards');
+        //on 함수로 글 목록가져오기
+        thanksRef.on('child_added', on_thanks_list)
+        var thanksRef = firebaseDatabase.ref('notice');
+        thanksRef.on('child_added', on_notice_list)
+  
+      } else {
+        //로그인 아니어도 글 보이게
+        //alert(loginUserKey)
+        //글이 저장된 레퍼런스 값 가져오기
+        var thanksRef = firebaseDatabase.ref('boards');
+        thanksRef.on('child_added', on_thanks_list)
+  
+        var thanksRef = firebaseDatabase.ref('notice');
+        thanksRef.on('child_added', on_notice_list)
+      }
+  
+    }
+  
+    //게시판 리스트 thanks 테이블의 thanks 키 들을 연속적으로 가져옴...ㅋㅋㅋㅋㅋ
+    function on_thanks_list(data) {
+      console.log("on_thanks_list() 함수안으로 들어왔습니다 리스트를 가져오겠습니다")
+      var key = data.key;
+  
+      var Data = data.val();
+      var comment = Data.comment;
+      var createtime = Data.createtime;
+      var name = Data.name;
+      var subject = Data.subject;
+      var userkey = Data.userkey;
+  
+      //무슨값이 넘어오는지 찍어보세요
+      //alert(comment +"/"+ createtime + "/"+name +"/"+userkey);
+  
+  
+  
+  
+      
+      //리스트 동적으로 붙이기
+      var html =
   
    
-
-
-
-    var peopleArray = [];
-    firebase.database().ref('/maps').once('value')
-        .then(function (snapshot) {
-
-            snapshot.forEach(function (childSnapshot) {
-
-                var person = {
-                    location: {
-                        lat: childSnapshot.child('x').val(),
-                        lng: childSnapshot.child('y').val()
-                    },
-                    name: childSnapshot.child("name").val(),
-                    subject : childSnapshot.child("subject").val(),
-                    Comment : childSnapshot.child("Comment").val()
-                };
-                peopleArray.push(person);
-
-            });
-        })
-        .then(function () {
-            initMap()
-        });
-
-
-        
- 
+  
+      
+                  "<div class=\"card\" id='" + userkey + "' onclick=\"show_user_page(this.id)\">" +
+                  "<div class=\"card-header bg-transparent\">" + "<div class=\"row align-items-center\">" + "<div class=\"col\">" +
+                  "<h5 style=\"font-size: 20px\" class=\"h3 mb-0\">" + "<a href=\"http://google.com\">" + subject +"</a></h5>" +
+                  "<h6 class=\"text-uppercase text-muted ls-1 mb-1\">" + name + " :: " + createtime + "</h6>" +
+                  "</br>" +
+                  "<a>" + comment + "</a>" +
+                  "</div></div></div></div>";
+  
+           //   $(".thanksList").append(html);   //아래로 붙이기
+              $(".map-canvas").prepend(html);   //위로 붙이기
+  
+   
+  
+    }
+  
+  
+  
+  
+    function on_notice_list(data) {
+      console.log("on_thanks_list() 함수안으로 들어왔습니다 리스트를 가져오겠습니다")
+      var key = data.key;
+  
+      var Data = data.val();
+      var comment = Data.comment;
+      var createtime = Data.createtime;
+      var name = Data.name;
+      var subject = Data.subject;
+      var userkey = Data.userkey;
+     // var userkey = Data.subject;
+  
+      //무슨값이 넘어오는지 찍어보세요
+      //alert(comment +"/"+ createtime + "/"+name +"/"+userkey);
+  
+  
+      //리스트 동적으로 붙이기
+      var html =
+                  "<div class=\"card\" id='" + userkey + "' onclick=\"show_user_page(this.id)\">" +
+                  "<div class=\"card-header\">" +
+                  "<h4 class=\"media-heading\"><strong STYLE=\"color: #424242; font-size: 16pt\">" + subject + "</strong>" +
+                  " <span STYLE=\"color: black; font-size: 11pt\">" + "</br>" + comment + "</span></h4>" +
+                  "<p STYLE=\"color: black; font-size: 8pt\">" + name + " :: " + createtime + "</p></div></div>";
+  
+              $(".noticelist").prepend(html);
+  
+   
+  
+    }
+  
   </script>
-
- 
 
 
 <script>
-  function initMap() {
-      var infowindows = [];
-      var markers = [];
-      var map;
-      // MARKER IMAGE
-      var houseIcon = {
-          url: "http://res.heraldm.com/content/image/2015/11/04/20151104001473_0.jpg", // url
-          scaledSize: new google.maps.Size(50, 50)
-      };
-      var greenIcon = {
-          url: "recycleicon.png", // url
-          scaledSize: new google.maps.Size(50, 50)
-      };
-      var smenaLocations = [{lat: 37.51773521194588, lng: 126.9918544673078}];
-      var smenaDescriptions = ['<p>테스트임</p>'];
-      map = new google.maps.Map(document.getElementById('map-default'), {
-          center: {lat: 37.51773521194588, lng: 126.9918544673078},
-          zoom: 11
-      });
+        
+  var config = {
+    apiKey: "AIzaSyDQLUtjdMgOLDIZlPusi5YPKBiuQduD9Go",
+		databaseURL: "https://mhazone-mha-default-rtdb.firebaseio.com/",
+        authDomain: "mhazone-mha.firebaseapp.com",
+        projectId: "mhazone-mha",
+        storageBucket: "mhazone-mha.appspot.com",
+        messagingSenderId: "967342331429",
+        appId: "1:967342331429:web:8a5689ea4c254f037951cc",
+        measurementId: "G-Z33QJ15H02"
+};
 
-      //            LOOP FOR ADDING MARKERS
-      var infowindow = new google.maps.InfoWindow();
-      // set Smena Locations
-      for (var i = 0; i < smenaLocations.length; i++) {
-
-          var marker = new google.maps.Marker({
-              position: smenaLocations[i],
-              map: map,
-              icon: houseIcon
-          });
-
-          var contentString = smenaDescriptions[i];
-
-          google.maps.event.addListener(marker, 'click', (function (marker, contentString) {
-              return function () {
-                  infowindow.setContent(contentString);
-                  infowindow.open(map, marker);
-                  infowindows.push(infowindow);
-              }
-          })(marker, contentString));
-      }
-
-
-
-
-
-
-
-
-
-
-      // set People Locations  유저가 추가한 지도 커스텀들
-      for (var i = 0; i < window.peopleArray.length; i++) {
-
-          var marker = new google.maps.Marker({
-              position: window.peopleArray[i].location,
-              map: map,
-              icon: greenIcon
-          });
-
-          var contentString = '<p>' + window.peopleArray[i].name + '</br>' + window.peopleArray[i].subject + '</p>';
-
-          google.maps.event.addListener(marker, 'click', (function (marker, contentString) {
-              return function () {
-                  infowindow.setContent(contentString);
-                  infowindow.open(map, marker);
-                  infowindows.push(infowindow);
-              }
-          })(marker, contentString));
-      }
-      google.maps.event.addListener(map, "click", function (event) {
-          for (var i = 0; i < infowindows.length; i++) {
-              infowindows[i].close();
-          }
-      });
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
+  if (!firebase.apps.length) {
+      firebase.initializeApp(config);
   }
+  
+  //Create a node at firebase location to add locations as child keys
+  var locationsRef = firebase.database().ref("locations");
+locationsRef.on('child_added', function(snapshot) {
+  var data = snapshot.val();
+  var marker = new google.maps.Marker({
+    position: {
+      lat: data.lat,
+      lng: data.lng
+    },
+    map: map
+  });
+  bounds.extend(marker.getPosition());
+  marker.addListener('click', (function(data) {
+    return function(e) {
+      infowindow.setContent(data.name + "<br>" + this.getPosition().toUrlValue(6) + "<br>" + data.message);
+      infowindow.open(map, this);
+    }
+  }(data)));
+  map.fitBounds(bounds);
+});
 
 
+
+  
+  // Create a new GeoFire key under users Firebase location
+  var geoFire = new GeoFire(locationsRef.push());
 </script>
 
- 
+
+
+
+<script>
+  // Note: This example requires that you consent to location sharing when
+  // prompted by your browser. If you see the error "The Geolocation service
+  // failed.", it means you probably did not give permission for the browser to
+  // locate you.
+
+  var map, infoWindow;
+  var lat, lng;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map-default'), {
+      center: {lat: 37.51773521194588, lng: 126.9918544673078},
+      zoom: 18,
+      gestureHandling: 'greedy'
+      
+    });
+    infoWindow = new google.maps.InfoWindow;
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+
+        var pos = {lat: lat, lng: lng };
+            _setGeoFire();
+      
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        infoWindow.open(map);
+        map.setCenter(pos);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  }
+
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+                          'Error: The Geolocation service failed.' :
+                          'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+  }
+
+  function _setGeoFire(){
+geoFire.set("User", [lat, lng]).then(()=>{
+        console.log("Location added");
+    }).catch(function(error) {
+        console.log(error);
+    });
+
+
+}
+</script>  
+
 
   <script>
     includeHTML();

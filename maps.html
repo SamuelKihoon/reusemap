@@ -518,7 +518,8 @@
       var smenaDescriptions = ['<p>테스트임</p>'];
       map = new google.maps.Map(document.getElementById('map-default'), {
           center: {lat: 37.51773521194588, lng: 126.9918544673078},
-          zoom: 11
+          zoom: 11,
+          gestureHandling: 'greedy'
       });
 
       //            LOOP FOR ADDING MARKERS
@@ -543,8 +544,7 @@
           })(marker, contentString));
       }
 
-
-
+ 
 
 
 
