@@ -357,7 +357,7 @@
 
 
             
-           <div id="map-default" class="map-canvas" data-lat="37.51773521194588" data-lng="126.9918544673078" style="height: 600px;"></div>
+           <div id="map-default" class="map-canvas" data-lat="37.51773521194588" data-lng="126.9918544673078" style="height: 400px;"></div>
          
 
 
@@ -377,14 +377,14 @@
           <div class="row align-items-center">
             <div class="col">
               
-              <h5 style="color: #4217ff; font-size: 22px" class="h3 mb-0">지도에 핀 추가하기</h5>
+              <h5 style="color: #204226; font-size: 22px" class="h3 mb-0">지도에 핀 추가하기</h5>
 
             </div>
           </div>
         </div>
         <div class="card-body" style="background-color: #fafeff;">
         
-          <a data-toggle="modal" data-target="#modalUpdate" class="btn" style="width: 100%; background-color: #4217ff; color: rgb(255, 255, 255);" href="#"><i class="fas fa-arrow-up"></i> 추가</a>
+          <a data-toggle="modal" data-target="#modalUpdate" class="btn" style="width: 100%; background-color: #1c542a; color: rgb(255, 255, 255);" href="#"><i class="fas fa-arrow-up"></i> 추가</a>
         </div>
       </div>
 
@@ -447,7 +447,7 @@
 
 
 
-                <textarea style="font-size: 15px;" class="form-control w-100" rows="9" name="comment" id="comment" cols="30" placeholder="익명 게시판의 이용에 따른 책임은 사용자에게 있으며, 특정 학생을 대상으로 한 저격,비방과 희롱 등 불쾌감을 유발하는 글은 봇에 의해 이유불문 삭제됩니다."></textarea></br>
+                <textarea style="font-size: 15px;" class="form-control w-100" rows="9" name="comment" id="comment" cols="30" placeholder="코멘트"></textarea></br>
   
                 <div class="card-sub">		
            
@@ -684,6 +684,9 @@
     
       
       alert("마커가 추가되었습니다.");
+
+      window.open("maps.html")
+
   
       $('#xlocation').val("");
       $('#ylocation').val("");
@@ -692,8 +695,7 @@
       window.location.reload();
       setTimeout(refreshwebpage, 1000);
 
-      
-
+ 
 
 
 
