@@ -7,14 +7,14 @@
 
         //파이어 베이스 초기화 코드
         var config = {
-            apiKey: "AIzaSyB8r-4Je7eGofLDKDiTpEppdAp9cItLLug",
-            authDomain: "webnote-59e75.firebaseapp.com",
-            databaseURL: "https://webnote-59e75.firebaseio.com",
-            projectId: "webnote-59e75",
-            storageBucket: "webnote-59e75.appspot.com",
-            messagingSenderId: "1076614864624",
-            appId: "1:1076614864624:web:d1d61eb0ff82cb2aba2c35",
-            measurementId: "G-7DW85B53L3"
+            apiKey: "AIzaSyBwOqfjqsnDHYBx0H90ob4J_ZosWF2MdLg",
+            authDomain: "seedgreendata.firebaseapp.com",
+            databaseURL: "https://seedgreendata-default-rtdb.firebaseio.com",
+            projectId: "seedgreendata",
+            storageBucket: "seedgreendata.appspot.com",
+            messagingSenderId: "327441750186",
+            appId: "1:327441750186:web:5d81abb5e75e821ca658d3",
+            measurementId: "G-XD6C0TDX2D"
         };
         //파이어베이스 초기화
         firebase.initializeApp(config);

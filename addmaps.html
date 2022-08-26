@@ -649,6 +649,7 @@
                 
                 xlocation = position.coords.latitude;
                 ylocation = position.coords.longitude;
+ 
                       //로그인한 유저의 pk값,이름,내용,시간 데이터
                       var obj = {
                         name: name,
@@ -685,7 +686,7 @@
       
       alert("마커가 추가되었습니다.");
 
-      window.open("maps.html")
+    //  window.open("maps.html")
 
   
       $('#xlocation').val("");
@@ -704,159 +705,13 @@
     }
   
   
-  
-    //글 목록가져와서 뿌려주기
-    function boardList() {
-      //alert("보드 로드 완료")
-  
-
- 
-
-
-
-      //로그인한 유저라면
-      if (loginUserKey) {
-        //alert(loginUserKey)
-        //글이 저장된 레퍼런스 값 가져오기
-        var thanksRef = firebaseDatabase.ref('boards');
-        //on 함수로 글 목록가져오기
-        thanksRef.on('child_added', on_thanks_list)
-        var thanksRef = firebaseDatabase.ref('notice');
-        thanksRef.on('child_added', on_notice_list)
-  
-      } else {
-        //로그인 아니어도 글 보이게
-        //alert(loginUserKey)
-        //글이 저장된 레퍼런스 값 가져오기
-        var thanksRef = firebaseDatabase.ref('boards');
-        thanksRef.on('child_added', on_thanks_list)
-  
-        var thanksRef = firebaseDatabase.ref('notice');
-        thanksRef.on('child_added', on_notice_list)
-      }
-  
-    }
-  
-    //게시판 리스트 thanks 테이블의 thanks 키 들을 연속적으로 가져옴...ㅋㅋㅋㅋㅋ
-    function on_thanks_list(data) {
-      console.log("on_thanks_list() 함수안으로 들어왔습니다 리스트를 가져오겠습니다")
-      var key = data.key;
-  
-      var Data = data.val();
-      var comment = Data.comment;
-      var createtime = Data.createtime;
-      var name = Data.name;
-      var subject = Data.subject;
-      var userkey = Data.userkey;
-  
-      //무슨값이 넘어오는지 찍어보세요
-      //alert(comment +"/"+ createtime + "/"+name +"/"+userkey);
-  
-  
-  
-  
-      
-      //리스트 동적으로 붙이기
-      var html =
-  
    
-  
-      
-                  "<div class=\"card\" id='" + userkey + "' onclick=\"show_user_page(this.id)\">" +
-                  "<div class=\"card-header bg-transparent\">" + "<div class=\"row align-items-center\">" + "<div class=\"col\">" +
-                  "<h5 style=\"font-size: 20px\" class=\"h3 mb-0\">" + "<a href=\"http://google.com\">" + subject +"</a></h5>" +
-                  "<h6 class=\"text-uppercase text-muted ls-1 mb-1\">" + name + " :: " + createtime + "</h6>" +
-                  "</br>" +
-                  "<a>" + comment + "</a>" +
-                  "</div></div></div></div>";
-  
-           //   $(".thanksList").append(html);   //아래로 붙이기
-              $(".map-canvas").prepend(html);   //위로 붙이기
-  
    
-  
-    }
-  
-  
-  
-  
-    function on_notice_list(data) {
-      console.log("on_thanks_list() 함수안으로 들어왔습니다 리스트를 가져오겠습니다")
-      var key = data.key;
-  
-      var Data = data.val();
-      var comment = Data.comment;
-      var createtime = Data.createtime;
-      var name = Data.name;
-      var subject = Data.subject;
-      var userkey = Data.userkey;
-     // var userkey = Data.subject;
-  
-      //무슨값이 넘어오는지 찍어보세요
-      //alert(comment +"/"+ createtime + "/"+name +"/"+userkey);
-  
-  
-      //리스트 동적으로 붙이기
-      var html =
-                  "<div class=\"card\" id='" + userkey + "' onclick=\"show_user_page(this.id)\">" +
-                  "<div class=\"card-header\">" +
-                  "<h4 class=\"media-heading\"><strong STYLE=\"color: #424242; font-size: 16pt\">" + subject + "</strong>" +
-                  " <span STYLE=\"color: black; font-size: 11pt\">" + "</br>" + comment + "</span></h4>" +
-                  "<p STYLE=\"color: black; font-size: 8pt\">" + name + " :: " + createtime + "</p></div></div>";
-  
-              $(".noticelist").prepend(html);
-  
-   
-  
-    }
   
   </script>
 
 
-<script>
-        
-  var config = {
-    apiKey: "AIzaSyBwOqfjqsnDHYBx0H90ob4J_ZosWF2MdLg",
-  authDomain: "seedgreendata.firebaseapp.com",
-  databaseURL: "https://seedgreendata-default-rtdb.firebaseio.com",
-  projectId: "seedgreendata",
-  storageBucket: "seedgreendata.appspot.com",
-  messagingSenderId: "327441750186",
-  appId: "1:327441750186:web:5d81abb5e75e821ca658d3",
-  measurementId: "G-XD6C0TDX2D"
-};
-
-  if (!firebase.apps.length) {
-      firebase.initializeApp(config);
-  }
-  
-  //Create a node at firebase location to add locations as child keys
-  var locationsRef = firebase.database().ref("locations");
-locationsRef.on('child_added', function(snapshot) {
-  var data = snapshot.val();
-  var marker = new google.maps.Marker({
-    position: {
-      lat: data.lat,
-      lng: data.lng
-    },
-    map: map
-  });
-  bounds.extend(marker.getPosition());
-  marker.addListener('click', (function(data) {
-    return function(e) {
-      infowindow.setContent(data.name + "<br>" + this.getPosition().toUrlValue(6) + "<br>" + data.message);
-      infowindow.open(map, this);
-    }
-  }(data)));
-  map.fitBounds(bounds);
-});
-
-
-
-  
-  // Create a new GeoFire key under users Firebase location
-  var geoFire = new GeoFire(locationsRef.push());
-</script>
+ 
 
 
 
