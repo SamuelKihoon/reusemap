@@ -681,15 +681,25 @@
       $('#xlocation').val("");
       $('#ylocation').val("");
   
-     //  var seedref = "users/" + loginUserKey;
+       var seedref = "users/" + loginUserKey;
 
 
-     // var SETT = firebaseDatabase.ref(seedref);
+      var SETT = firebaseDatabase.ref(seedref);
 
-     // var setif = {
-		//	seed: parseInt(1291) +  parseInt(1),
-	//	};
-	//	SETT.set(setif);
+      var setif = {
+        
+        email : snapshot.val().email,
+        name : snapshot.val().name,
+        ip : snapshot.val().ip,
+        pwd : snapshot.val().pwd,
+        userkey : snapshot.val().userkey,
+
+
+
+			seed: parseInt(1291) +  parseInt(1),
+
+		};
+		SETT.set(setif);
 
 
 
