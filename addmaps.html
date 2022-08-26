@@ -676,14 +676,7 @@
               alert("위치정보를 지원하지 않습니다.");
             }
 
- 
-       
-
-
   
- 
-    
-      
       alert("마커가 추가되었습니다.");
 
     //  window.open("maps.html")
@@ -697,6 +690,32 @@
       setTimeout(refreshwebpage, 1000);
 
  
+
+
+
+      var addSeed = firebaseDatabase.ref("maps");
+  
+  // 해당 객체의 key 값이 자동으로 생성된다.
+  var myseed = addSeed.push(); // 해당 객체의 key 값이 자동으로 생성된다.
+
+
+
+                //로그인한 유저의 pk값,이름,내용,시간 데이터
+ 
+                  var obj = {
+                    name: name,
+                    userkey: loginUserKey,
+                    subject: subject,
+                    x: xlocation,
+                    y: ylocation,
+                    createtime: currentTime,
+                    comment: comment
+                  };
+            //위에서 thankRef.push()로 만들어진 key아래 위치에 저장해준다.
+
+           myseed.set(obj);
+
+
 
 
 
