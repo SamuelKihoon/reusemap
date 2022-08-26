@@ -277,17 +277,13 @@
   
             <div class="dropdown-menu  dropdown-menu-right ">
               <div class="dropdown-header noti-title">
-                <h6 class="text-overflow m-0">Welcome!</h6>
+                <h6 class="text-overflow m-0" id="seedz">Welcome!</h6>
               </div>
               <a href="#!" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span id="myprofile">로그인 필요</span>
               </a>
-                
-              <a href="#!" class="dropdown-item">
-                <i class="ni ni-support-16"></i>
-                <span>문의하기</span>
-              </a>
+                 
   
               <a href="#!" class="dropdown-item">
                 <i class="ni ni-settings-gear-65"></i>
@@ -685,6 +681,17 @@
       $('#xlocation').val("");
       $('#ylocation').val("");
   
+       var seedref = "users/" + loginUserKey;
+
+
+      var SETT = firebaseDatabase.ref(seedref);
+
+      var setif = {
+			seed: "12121"
+		};
+		SETT.set(setif);
+
+
 
       window.location.reload();
       setTimeout(refreshwebpage, 1000);
@@ -693,30 +700,20 @@
 
 
 
-      var addSeed = firebaseDatabase.ref("maps");
-  
-  // 해당 객체의 key 값이 자동으로 생성된다.
-  var myseed = addSeed.push(); // 해당 객체의 key 값이 자동으로 생성된다.
 
 
 
-                //로그인한 유저의 pk값,이름,내용,시간 데이터
+
+
  
-                  var obj = {
-                    name: name,
-                    userkey: loginUserKey,
-                    subject: subject,
-                    x: xlocation,
-                    y: ylocation,
-                    createtime: currentTime,
-                    comment: comment
-                  };
-            //위에서 thankRef.push()로 만들어진 key아래 위치에 저장해준다.
-
-           myseed.set(obj);
 
 
 
+
+
+
+
+ 
 
 
       

@@ -18,6 +18,8 @@
               document.getElementById("myprofile").innerHTML = "내 프로필";
               document.getElementById("myprofile").href = "../maps.html";
 
+         //     document.getElementById("seeds").innerHTML = snapshot.val().seed + " 개"; // Seed 시드포인드 적립 표시
+              document.getElementById("seedz").innerHTML = "내 시드 : " + snapshot.val().seed + " 개"; // Seed 시드포인드 적립 표시
 
 
   
