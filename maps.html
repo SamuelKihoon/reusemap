@@ -487,6 +487,7 @@
                     name: childSnapshot.child("name").val(),
                     subject : childSnapshot.child("subject").val(),
                     Comment : childSnapshot.child("Comment").val()
+                    
                 };
                 peopleArray.push(person);
 
@@ -494,10 +495,13 @@
         })
         .then(function () {
             initMap()
+
         });
 
 
  
+
+        
   </script>
 
 
