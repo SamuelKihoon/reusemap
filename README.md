@@ -1,4 +1,4 @@
-# reusemap co., ltd. :: 다크모드 추가하기
+# naamuib Inc.
 <img src="backgroundlogo.png">
 리유스맵 - 가까운 거리의 실천
 
