@@ -1,4 +1,4 @@
-# naamuib Inc.
+# Birzont Inc.
 <img src="backgroundlogo.png">
 리유스맵 - 가까운 거리의 실천
 
