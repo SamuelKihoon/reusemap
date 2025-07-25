@@ -474,11 +474,13 @@
 
 
     var peopleArray = [];
+    var map;
+    var markers = [];
+    var infowindows = [];
+    
     firebase.database().ref('/maps').once('value')
         .then(function (snapshot) {
-
             snapshot.forEach(function (childSnapshot) {
-
                 var person = {
                     location: {
                         lat: childSnapshot.child('x').val(),
@@ -487,21 +489,122 @@
                     name: childSnapshot.child("name").val(),
                     subject : childSnapshot.child("subject").val(),
                     Comment : childSnapshot.child("Comment").val()
-                    
                 };
                 peopleArray.push(person);
-
             });
         })
         .then(function () {
-            initMap()
-
+            initMap();
         });
 
+    function createMarker(person, highlight) {
+      var icon = {
+        url: highlight ? "recycleicon.png" : "recycleicon.png",
+        scaledSize: highlight ? new google.maps.Size(70, 70) : new google.maps.Size(50, 50),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(25, 25),
+        // 그림자 효과
+        ...(highlight ? {shadow: {color: '#fff', blur: 30}} : {})
+      };
+      var marker = new google.maps.Marker({
+        position: person.location,
+        map: map,
+        icon: icon,
+        // zIndex로 강조
+        zIndex: highlight ? 999 : 1
+      });
+      if (highlight) {
+        // 그림자 효과 추가 (CSS로)
+        setTimeout(function() {
+          if (marker && marker.getIcon && marker.getIcon()) {
+            var markerDiv = marker.get('gm_accessors_')?.icon?.div;
+            if (markerDiv) {
+              markerDiv.style.filter = 'drop-shadow(0 0 10px white)';
+            }
+          }
+        }, 100);
+      }
+      var contentString = '<p>' + person.name + '</br>' + person.subject + '</p>';
+      var infowindow = new google.maps.InfoWindow();
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+        infowindows.push(infowindow);
+      });
+      return marker;
+    }
 
- 
+    function clearMarkers() {
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
+    }
 
-        
+    function updateMarkersBySearch(query) {
+      clearMarkers();
+      var lower = query.trim().toLowerCase();
+      for (var i = 0; i < peopleArray.length; i++) {
+        var person = peopleArray[i];
+        var match =
+          person.name && person.name.toLowerCase().includes(lower) ||
+          person.subject && person.subject.toLowerCase().includes(lower);
+        var marker = createMarker(person, match && lower.length > 0);
+        markers.push(marker);
+      }
+    }
+
+    function initMap() {
+      infowindows = [];
+      markers = [];
+      map = new google.maps.Map(document.getElementById('map-default'), {
+        center: {lat: 37.51773521194588, lng: 126.9918544673078},
+        zoom: 11,
+        gestureHandling: 'greedy'
+      });
+      // 기본 마커(예시)
+      var houseIcon = {
+        url: "https://cdn-icons-png.flaticon.com/512/484/484167.png",
+        scaledSize: new google.maps.Size(50, 50)
+      };
+      var smenaLocations = [{lat: 37.51773521194588, lng: 126.9918544673078}];
+      var smenaDescriptions = ['<p>테스트임</p>'];
+      var infowindow = new google.maps.InfoWindow();
+      for (var i = 0; i < smenaLocations.length; i++) {
+        var marker = new google.maps.Marker({
+          position: smenaLocations[i],
+          map: map,
+          icon: houseIcon
+        });
+        var contentString = smenaDescriptions[i];
+        google.maps.event.addListener(marker, 'click', (function (marker, contentString) {
+          return function () {
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+            infowindows.push(infowindow);
+          }
+        })(marker, contentString));
+      }
+      // 유저가 추가한 핀들
+      for (var i = 0; i < peopleArray.length; i++) {
+        var marker = createMarker(peopleArray[i], false);
+        markers.push(marker);
+      }
+      google.maps.event.addListener(map, "click", function (event) {
+        for (var i = 0; i < infowindows.length; i++) {
+          infowindows[i].close();
+        }
+      });
+    }
+
+    // 검색창 이벤트 연결
+    $(document).ready(function() {
+      $(".navbar-search .form-control").on("input", function() {
+        var val = $(this).val();
+        updateMarkersBySearch(val);
+      });
+    });
+
   </script>
 
 
